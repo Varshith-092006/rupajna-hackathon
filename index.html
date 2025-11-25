@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RupaJna 2026 - National Level Prototype Challenge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a4b8c;
+            --primary-light: #2a6bc5;
+            --primary-dark: #0d2c52;
+            --secondary: #f8f9fa;
+            --accent: #ffc107;
+            --accent-dark: #e6ac00;
+            --text: #333333;
+            --light-text: #6c757d;
+            --white: #ffffff;
+            --shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo i {
+            font-size: 2.2rem;
+            color: var(--accent);
+        }
+
+        .logo h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+            
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(13, 44, 82, 0.85), rgba(26, 75, 140, 0.9)), url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 8rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.2rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 400;
+        }
+
+        .hero .date {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            color: var(--accent);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--primary-dark);
+            padding: 16px 38px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+            letter-spacing: 0.5px;
+            border: 2px solid var(--accent);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            color: var(--primary);
+            position: relative;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            margin: 15px auto;
+            border-radius: 3px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.4s;
+        }
+
+        .about-image:hover {
+            transform: translateY(-8px);
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Themes Section */
+        .themes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .theme-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.4s;
+            border-top: 5px solid var(--primary);
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .theme-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .theme-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .theme-card h3 {
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .theme-card p {
+            color: var(--light-text);
+            line-height: 1.7;
+        }
+
+        /* Rewards Section */
+        .rewards {
+            background: linear-gradient(135deg, var(--secondary) 0%, #f0f4f8 100%);
+        }
+
+        .rewards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .reward-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.4s;
+            border-left: 5px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .reward-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .reward-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .reward-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .reward-card p {
+            color: var(--light-text);
+            font-size: 1.1rem;
+        }
+
+        /* Registration Section */
+        .registration {
+            background-color: var(--white);
+        }
+
+        .registration-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .important-dates {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .important-dates h3 {
+            color: var(--primary);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.7rem;
+            font-weight: 600;
+        }
+
+        .date-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .date-card {
+            background-color: var(--white);
+            padding: 2rem 1.8rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s;
+            height: 100%;
+        }
+
+        .date-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .date-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .date-card p {
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .date-card .date-highlight {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .date-icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .registration-details {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            height: 100%;
+        }
+
+        .registration-details:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .registration-details h3 {
+            color: var(--primary);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.7rem;
+            font-weight: 600;
+        }
+
+        .detail-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .detail-item p {
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Problem Statements Section */
+        .problem-statements {
+            background: linear-gradient(135deg, var(--secondary) 0%, #f0f4f8 100%);
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid var(--secondary);
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .tab {
+            padding: 14px 28px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--light-text);
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            border-radius: 6px 6px 0 0;
+            font-size: 1.1rem;
+        }
+
+        .tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            background-color: rgba(26, 75, 140, 0.05);
+        }
+
+        .tab:hover:not(.active) {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .problem-list {
+            list-style-type: none;
+        }
+
+        .problem-list li {
+            padding: 18px;
+            margin-bottom: 12px;
+            background-color: var(--white);
+            border-left: 5px solid var(--primary);
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .problem-list li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            padding: 4rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.8rem;
+            position: relative;
+            padding-bottom: 12px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        .map-container {
+            height: 220px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.95rem;
+            color: #ddd;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.8rem;
+                width: 100%;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 0;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .hero .date {
+                font-size: 1.4rem;
+            }
+
+            .about-content, .registration-content {
+                flex-direction: column;
+            }
+            
+            .themes-container, .rewards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .theme-card, .reward-card, .date-card, .registration-details {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-lightbulb"></i>
+                    <h1>RupaJna 2026</h1>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#themes">Thrust Areas</a></li>
+                        <li><a href="#rewards">Rewards</a></li>
+                        <li><a href="#registration">Registration</a></li>
+                        <li><a href="#problem-statements">Problem Statements</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>RupaJna 2026</h2>
+            <p><b>A National Level Prototype Challenge</b></p>
+            <p class="date">07 January, 2026</p>
+            <a href="#registration" class="cta-button">Register Now</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About RupaJna</h2>
+            <p class="section-subtitle">Turning Innovation Into Impactful Reality</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>RupaJna is a national level prototype challenge that brings together innovators, developers, and problem-solvers to address pressing challenges in various domains. Our mission is to foster creativity and collaboration while developing practical solutions that can make a real impact.</p>
+                    <p>This year's event focuses on three key thrust areas: IoT, Biomedical, and AgriTech. Participants will have the opportunity to work on problem statements provided by industry experts and develop innovative prototypes.</p>
+                    <p><strong>Organized by:</strong> RVR & JC College of Engineering STP Foundation (RJ E-NEST)</p>
+                </div>
+                <div class="about-image">
+                    <img src="itbi.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes Section -->
+    <section id="themes" class="themes">
+        <div class="container">
+            <h2 class="section-title">Thrust Areas</h2>
+            <p class="section-subtitle">Explore the key domains where innovation can create meaningful impact</p>
+            <div class="themes-container">
+                <div class="theme-card">
+                    <div class="theme-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Internet of Things (IoT)</h3>
+                    <p>Develop smart, connected solutions for real-world challenges in agriculture, infrastructure, safety, and more using IoT technologies.</p>
+                </div>
+                <div class="theme-card">
+                    <div class="theme-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Biomedical</h3>
+                    <p>Create innovative healthcare solutions, from diagnostic tools to waste management systems, that improve patient care and medical processes.</p>
+                </div>
+                <div class="theme-card">
+                    <div class="theme-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>AgriTech</h3>
+                    <p>Build technology-driven solutions to enhance agricultural productivity, reduce waste, and support sustainable farming practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rewards Section -->
+    <section id="rewards" class="rewards">
+        <div class="container">
+            <h2 class="section-title">Rewards</h2>
+            <p class="section-subtitle">Outstanding innovations deserve outstanding recognition</p>
+            <div class="rewards-container">
+                <div class="reward-card">
+                    <div class="reward-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Cash Prizes</h3>
+                    <p>Worth Rs. 1 Lakh</p>
+                </div>
+                <div class="reward-card">
+                    <div class="reward-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Ignition Grant</h3>
+                    <p>Up to Rs. 10 Lakhs</p>
+                </div>
+                <div class="reward-card">
+                    <div class="reward-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certificates</h3>
+                    <p>Certificate of Appreciation to all Participants</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration" class="registration">
+        <div class="container">
+            <h2 class="section-title">Registration</h2>
+            <p class="section-subtitle">Join the innovation revolution</p>
+            <div class="registration-content">
+                <div class="important-dates">
+                    <h3>Important Dates</h3>
+                    <div class="date-cards">
+                        <div class="date-card">
+                            <div class="date-icon">
+                                <i class="far fa-calendar-check"></i>
+                            </div>
+                            <h4>Last Date to Register</h4>
+                            <p class="date-highlight">26th December 2025</p>
+                        </div>
+                        <div class="date-card">
+                            <div class="date-icon">
+                                <i class="fas fa-calendar-day"></i>
+                            </div>
+                            <h4>Date of Event</h4>
+                            <p class="date-highlight">07th January 2026</p>
+                            <p>Presentation of Prototype to the Jury Panel</p>
+                        </div>
+                        <div class="date-card">
+                            <div class="date-icon">
+                                <i class="fas fa-bed"></i>
+                            </div>
+                            <h4>Accommodation</h4>
+                            <p>Accommodation shall be provided in the Campus for Outstation Participants (based on availability & prior request)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="registration-details">
+                    <h3>Registration Details</h3>
+                    <div class="detail-item">
+                        <h4>Registration Fee</h4>
+                        <p>Rs. 500/- per team</p>
+                        <p>Team size: Not more than 5 members</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Registration Link</h4>
+                        <p><a href="https://forms.gle/sf5BN9D8VpqngTZf9" target="_blank" class="cta-button" style="display: inline-block; margin-top: 10px;">Register Now</a></p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Venue / Host Institute</h4>
+                        <p>RVR & JC College of Engineering (A)<br>
+                        Chowdavaram, Guntur - 522019,<br>
+                        Andhra Pradesh, INDIA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statements Section -->
+    <section id="problem-statements" class="problem-statements">
+        <div class="container">
+            <h2 class="section-title">Problem Statements</h2>
+            <p class="section-subtitle">NOTE: Problem Statements are available in the event website.</p>
+            <div class="tabs">
+                <button class="tab active" data-tab="iot">IoT</button>
+                <button class="tab" data-tab="biomedical">Biomedical</button>
+                <button class="tab" data-tab="agritech">AgriTech</button>
+            </div>
+            
+            <div class="tab-content active" id="iot-content">
+                <ul class="problem-list">
+                    <li>Affordable real-time rumination monitoring system for cattle health</li>
+                    <li>Smart noise monitoring solution for public events</li>
+                    <li>AI-driven IoT network for venue operations and safety</li>
+                    <li>Decentralized structural health monitoring system</li>
+                    <li>IoT-based power distribution monitoring for grid efficiency</li>
+                    <li>AI/ML-based predictive maintenance for industrial machines</li>
+                    <li>Secure communication framework for IoT devices</li>
+                    <li>Offline-enabled IoT safety system for women</li>
+                    <li>Low-cost IoT-based air quality monitoring network</li>
+                    <li>Centralized smart dashboard for city management</li>
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="biomedical-content">
+                <ul class="problem-list">
+                    <li>AI/ML-driven digital system for biomedical waste classification</li>
+                    <li>IoT- and RFID-enabled biomedical waste tracking system</li>
+                    <li>Non-incineration biomedical waste treatment system</li>
+                    <li>Affordable paper-based microfluidic device for infectious disease detection</li>
+                    <li>Portable biosensor for continuous biochemical monitoring</li>
+                    <li>Low-cost point-of-care platform for AMR marker detection</li>
+                    <li>Smart wearable exoskeleton for stroke rehabilitation</li>
+                    <li>IoT-enabled smart wheelchair with autonomous navigation</li>
+                    <li>AI model for drug discovery in rare diseases</li>
+                    <li>IoT-based water monitoring system for disease outbreak prediction</li>
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="agritech-content">
+                <ul class="problem-list">
+                    <li>Drone-based AI system for early crop stress detection</li>
+                    <li>Low-cost mechanized tools for small farmers</li>
+                    <li>Smart drip irrigation system with sensor automation</li>
+                    <li>Portable energy-efficient cold storage units</li>
+                    <li>AI-IoT solution for food processing monitoring</li>
+                    <li>Intelligent feed dispensing system for livestock</li>
+                    <li>IoT-controlled aeration system for fish ponds</li>
+                    <li>Solar-powered cold storage for coastal fishers</li>
+                    <li>Wearable sensor device for livestock health monitoring</li>
+                    <li>IoT-based automation for small dairy units</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> eventsrjenest@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91-8919835293 / +91-9381384702</p>
+                    <p><i class="fas fa-globe"></i> <a href="https://rvrjcce.ac.in/rjenest" style="color: #ddd;">https://rvrjcce.ac.in/rjenest</a></p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#themes">Thrust Areas</a></li>
+                        <li><a href="#rewards">Rewards</a></li>
+                        <li><a href="#registration">Registration</a></li>
+                        <li><a href="#problem-statements">Problem Statements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Venue Location</h3>
+                    <p>RVR & JC College of Engineering (A)<br>
+                    Chowdavaram, Guntur - 522019,<br>
+                    Andhra Pradesh, INDIA</p>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.093173248882!2d80.52372217505067!3d16.75393058400085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35eff948dee5a5%3A0x6a3f66c1f8a4e9e!2sR.V.R.%20%26%20J.C.%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1698765432100!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 RupaJna Hackathon. All rights reserved. | Organized by RVR & JC College of Engineering STP Foundation (RJ E-NEST)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Tab functionality
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(`${tabId}-content`).classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '0.5rem 0';
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.padding = '1rem 0';
+                header.style.boxShadow = 'var(--shadow)';
+            }
+        });
+    </script>
+</body>
+</html>
