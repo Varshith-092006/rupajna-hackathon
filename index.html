@@ -515,13 +515,16 @@
         }
 
         .problem-list li {
-            padding: 18px;
+            padding: 25px;
             margin-bottom: 12px;
             background-color: var(--white);
             border-left: 5px solid var(--primary);
             border-radius: 8px;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
             transition: all 0.3s;
+            font-weight: 500;
+            margin-left: 50px;
+            margin-right: 50px;
         }
 
         .problem-list li:hover {
@@ -714,7 +717,7 @@
             }
         }
 
-                /* Organized By Section */
+                       /* Organized By Section */
         .organized-by {
             background-color: var(--secondary);
             padding: 4rem 0;
@@ -724,14 +727,95 @@
             text-align: center;
         }
 
-        .organized-image {
-            width: 1000px;
-            max-width: 3000px;
-            height: auto;
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .logo-item {
+            background-color: var(--white);
+            padding: 2rem;
             border-radius: 12px;
             box-shadow: var(--shadow);
-            margin: 0 auto;
-            display: block;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .logo-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .organized-logo {
+            max-width: 180px;
+            max-height: 120px;
+            height: auto;
+            margin-bottom: 1rem;
+            object-fit: contain;
+        }
+
+        .logo-item p {
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+                /* Mobile Menu Styles */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+                gap: 0.8rem;
+                width: 100%;
+                background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 1.5rem 0;
+                box-shadow: var(--shadow-hover);
+                z-index: 999;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+                z-index: 1000;
+            }
+
+            .header-content {
+                flex-direction: row;
+                gap: 1.2rem;
+            }
+
+            nav {
+                width: auto;
+            }
+
+            nav a {
+                display: block;
+                padding: 12px 20px;
+                border-radius: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav a:last-child {
+                border-bottom: none;
+            }
+
+            nav a:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -750,7 +834,7 @@
                 <nav>
                     <ul>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#themes">Thrust Areas</a></li>
+                        <li><a href="#themes">Domains</a></li>
                         <li><a href="#rewards">Rewards</a></li>
                         <li><a href="#registration">Registration</a></li>
                         <li><a href="#problem-statements">Problem Statements</a></li>
@@ -788,12 +872,33 @@
             </div>
         </div>
     </section>
-        <!-- Organized By Section -->
+            <!-- Organized By Section -->
     <section id="organized-by" class="organized-by">
         <div class="container">
             <h2 class="section-title">Organized By</h2>
             <div class="organized-content">
-                <img src="image.jpg" alt="RVR & JC College of Engineering with DST NIDHI" class="organized-image">
+                <div class="logo-grid">
+                    <div class="logo-item">
+                        <img src="https://rvrjcce.ac.in/rjenest/Assets/images/rjenestlogo.png" alt="RJ E-NEST" class="organized-logo">
+                        <p>RJ E-NEST</p>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://rvrjcce.ac.in/rjenest/Assets/images/idst-nidhi.jpg" alt="DST NIDHI" class="organized-logo">
+                        <p>DST NIDHI</p>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://rvrjcce.ac.in/rjenest/Assets/images/s&t.jpg" alt="Science & Technology" class="organized-logo">
+                        <p>Science & Technology</p>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://rvrjcce.ac.in/rjenest/Assets/images/iic.jpg" alt="Institution's Innovation Council" class="organized-logo">
+                        <p>Institution's Innovation Council</p>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://rvrjcce.ac.in/rjenest/Assets/images/image4.jpg" alt="Institution's Innovation Council" class="organized-logo">
+                        <p>R.V.R & J.C College of Engineering</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -801,7 +906,7 @@
     <!-- Themes Section -->
     <section id="themes" class="themes">
         <div class="container">
-            <h2 class="section-title">Thrust Areas</h2>
+            <h2 class="section-title">Hackathon Domains</h2>
             <p class="section-subtitle">Explore the key domains where innovation can create meaningful impact</p>
             <div class="themes-container">
                 <div class="theme-card">
@@ -919,8 +1024,6 @@
     <section id="problem-statements" class="problem-statements">
         <div class="container">
             <h2 class="section-title">Problem Statements</h2>
-            <p class="section-subtitle">NOTE: Problem Statements are available in the event website.</p>
-            <div class="tabs">
                 <button class="tab active" data-tab="iot">IoT</button>
                 <button class="tab" data-tab="biomedical">Biomedical</button>
                 <button class="tab" data-tab="agritech">AgriTech</button>
@@ -993,7 +1096,7 @@
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="#about">About</a></li>
-                        <li><a href="#themes">Thrust Areas</a></li>
+                        <li><a href="#themes">Domains</a></li>
                         <li><a href="#rewards">Rewards</a></li>
                         <li><a href="#registration">Registration</a></li>
                         <li><a href="#problem-statements">Problem Statements</a></li>
@@ -1015,10 +1118,44 @@
         </div>
     </footer>
 
-    <script>
+        <script>
         // Mobile menu toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('show');
+            const nav = document.querySelector('nav ul');
+            nav.classList.toggle('show');
+            
+            // Toggle hamburger icon
+            const icon = this.querySelector('i');
+            if (nav.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu
+                const nav = document.querySelector('nav ul');
+                const mobileMenuIcon = document.querySelector('.mobile-menu i');
+                nav.classList.remove('show');
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+                
+                // Smooth scroll to target
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
         });
 
         // Tab functionality
@@ -1040,21 +1177,6 @@
             });
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            });
-        });
-
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
@@ -1064,6 +1186,19 @@
             } else {
                 header.style.padding = '1rem 0';
                 header.style.boxShadow = 'var(--shadow)';
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const nav = document.querySelector('nav ul');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (!nav.contains(e.target) && !mobileMenu.contains(e.target) && nav.classList.contains('show')) {
+                nav.classList.remove('show');
+                const mobileMenuIcon = document.querySelector('.mobile-menu i');
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
             }
         });
     </script>
