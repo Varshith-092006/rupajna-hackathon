@@ -514,8 +514,9 @@
             list-style-type: none;
         }
 
+                /* Problem List Updates for Shorter Items */
         .problem-list li {
-            padding: 25px;
+            padding: 18px 25px;
             margin-bottom: 12px;
             background-color: var(--white);
             border-left: 5px solid var(--primary);
@@ -523,13 +524,100 @@
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
             transition: all 0.3s;
             font-weight: 500;
-            margin-left: 50px;
-            margin-right: 50px;
+            margin-left: 20px;
+            margin-right: 20px;
+            line-height: 1.6;
+            position: relative;
+            font-size: 1.05rem;
         }
 
         .problem-list li:hover {
             transform: translateX(5px);
             box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+            background-color: #f8fbff;
+        }
+                /* Download Buttons */
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+        }
+
+        .download-btn:hover {
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .download-btn i {
+            font-size: 1.1rem;
+        }
+
+        /* Problem Code Styling */
+        .problem-code {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--primary-dark);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        /* Problem List Updates */
+        .problem-list li {
+            padding: 25px;
+            margin-bottom: 15px;
+            background-color: var(--white);
+            border-left: 5px solid var(--primary);
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            font-weight: 500;
+            margin-left: 20px;
+            margin-right: 20px;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .download-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .problem-list li {
+                margin-left: 10px;
+                margin-right: 10px;
+                padding: 20px;
+            }
         }
 
         /* Footer */
@@ -826,7 +914,7 @@
             <div class="header-content">
                 <div class="logo">
                     <i class="fas fa-lightbulb"></i>
-                    <h1>RupaJna 2026</h1>
+                    <h1>RūpaJña 2026</h1>
                 </div>
                 <div class="mobile-menu">
                     <i class="fas fa-bars"></i>
@@ -848,7 +936,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <h2>RupaJna 2026</h2>
+            <h2>RūpaJña 2026</h2>
             <p><b>A National Level Prototype Challenge</b></p>
             <p class="date">07 January, 2026</p>
             <a href="#registration" class="cta-button">Register Now</a>
@@ -858,11 +946,11 @@
     <!-- About Section -->
     <section id="about">
         <div class="container">
-            <h2 class="section-title">About RupaJna</h2>
+            <h2 class="section-title">About RūpaJña</h2>
             <p class="section-subtitle">Turning Innovation Into Impactful Reality</p>
             <div class="about-content">
                 <div class="about-text">
-                    <p>RupaJna is a national level prototype challenge that brings together innovators, developers, and problem-solvers to address pressing challenges in various domains. Our mission is to foster creativity and collaboration while developing practical solutions that can make a real impact.</p>
+                    <p>RūpaJña is a national level prototype challenge that brings together innovators, developers, and problem-solvers to address pressing challenges in various domains. Our mission is to foster creativity and collaboration while developing practical solutions that can make a real impact.</p>
                     <p>This year's event focuses on three key thrust areas: IoT, Biomedical, and AgriTech. Participants will have the opportunity to work on problem statements provided by industry experts and develop innovative prototypes.</p>
                     <p><strong>Organized by:</strong> RVR & JC College of Engineering STP Foundation (RJ E-NEST)</p>
                 </div>
@@ -897,6 +985,10 @@
                     <div class="logo-item">
                         <img src="https://rvrjcce.ac.in/rjenest/Assets/images/image4.jpg" alt="Institution's Innovation Council" class="organized-logo">
                         <p>R.V.R & J.C College of Engineering</p>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://rvrjcce.ac.in/ximages/emdcell/emdlogo.jpg" alt="Institution's Innovation Council" class="organized-logo">
+                        <p>Entrepreneurship Development Cell</p>
                     </div>
                 </div>
             </div>
@@ -1020,10 +1112,25 @@
         </div>
     </section>
 
-    <!-- Problem Statements Section -->
+        <!-- Problem Statements Section -->
     <section id="problem-statements" class="problem-statements">
         <div class="container">
             <h2 class="section-title">Problem Statements</h2>
+            <p class="section-subtitle">Download detailed problem statements for each domain</p>
+            
+            <div class="download-buttons">
+                <a href="https://drive.google.com/uc?export=download&id=1yL6iZtnFscpznjPAKi_DWbnZtl8uNs0p" target="_blank" class="download-btn" download>
+                    <i class="fas fa-download"></i> Download IoT Problem Statements
+                </a>
+                <a href="https://drive.google.com/uc?export=download&id=1GyqhWzxVUvS1-k3XnfZcsC9PVE1ezrci" target="_blank" class="download-btn" download>
+                    <i class="fas fa-download"></i> Download Biomedical Problem Statements
+                </a>
+                <a href="https://drive.google.com/uc?export=download&id=1uicH3NnodrT3GzIDs_lFbWbMJ3RRkfv9" target="_blank" class="download-btn" download>
+                    <i class="fas fa-download"></i> Download AgriTech Problem Statements
+                </a>
+            </div>
+
+            <div class="tabs">
                 <button class="tab active" data-tab="iot">IoT</button>
                 <button class="tab" data-tab="biomedical">Biomedical</button>
                 <button class="tab" data-tab="agritech">AgriTech</button>
@@ -1031,46 +1138,49 @@
             
             <div class="tab-content active" id="iot-content">
                 <ul class="problem-list">
-                    <li>Affordable real-time rumination monitoring system for cattle health</li>
-                    <li>Smart noise monitoring solution for public events</li>
-                    <li>AI-driven IoT network for venue operations and safety</li>
-                    <li>Decentralized structural health monitoring system</li>
-                    <li>IoT-based power distribution monitoring for grid efficiency</li>
-                    <li>AI/ML-based predictive maintenance for industrial machines</li>
-                    <li>Secure communication framework for IoT devices</li>
-                    <li>Offline-enabled IoT safety system for women</li>
-                    <li>Low-cost IoT-based air quality monitoring network</li>
-                    <li>Centralized smart dashboard for city management</li>
+                    <li>Affordable real-time cattle rumination monitoring system for early health detection <span class="problem-code">(IoT01)</span></li>
+                    <li>Smart noise monitoring solution for public events with real-time alerts <span class="problem-code">(IoT02)</span></li>
+                    <li>AI-driven IoT network for venue operations and crowd safety management <span class="problem-code">(IoT03)</span></li>
+                    <li>Decentralized structural health monitoring system for urban infrastructure <span class="problem-code">(IoT04)</span></li>
+                    <li>IoT-based power distribution monitoring to detect theft and grid inefficiencies <span class="problem-code">(IoT05)</span></li>
+                    <li>AI/ML-based predictive maintenance system for industrial machines <span class="problem-code">(IoT06)</span></li>
+                    <li>Secure communication framework for IoT devices using PKI encryption <span class="problem-code">(IoT07)</span></li>
+                    <li>Offline-enabled IoT safety system for women's protection <span class="problem-code">(IoT08)</span></li>
+                    <li>Low-cost IoT-based air quality monitoring network with hazard alerts <span class="problem-code">(IoT09)</span></li>
+                    <li>Centralized smart dashboard for integrated city management systems <span class="problem-code">(IoT10)</span></li>
                 </ul>
             </div>
             
             <div class="tab-content" id="biomedical-content">
                 <ul class="problem-list">
-                    <li>AI/ML-driven digital system for biomedical waste classification</li>
-                    <li>IoT- and RFID-enabled biomedical waste tracking system</li>
-                    <li>Non-incineration biomedical waste treatment system</li>
-                    <li>Affordable paper-based microfluidic device for infectious disease detection</li>
-                    <li>Portable biosensor for continuous biochemical monitoring</li>
-                    <li>Low-cost point-of-care platform for AMR marker detection</li>
-                    <li>Smart wearable exoskeleton for stroke rehabilitation</li>
-                    <li>IoT-enabled smart wheelchair with autonomous navigation</li>
-                    <li>AI model for drug discovery in rare diseases</li>
-                    <li>IoT-based water monitoring system for disease outbreak prediction</li>
+                    <li>AI/ML-driven system for automated biomedical waste classification and tracking <span class="problem-code">(BM01)</span></li>
+                    <li>IoT-RFID enabled biomedical waste tracking from generation to disposal <span class="problem-code">(BM02)</span></li>
+                    <li>Non-incineration biomedical waste treatment system with minimal emissions <span class="problem-code">(BM03)</span></li>
+                    <li>Affordable paper-based microfluidic device for rapid infectious disease detection <span class="problem-code">(BM04)</span></li>
+                    <li>Portable biosensor for continuous biochemical monitoring (pH, uric acid, creatinine, glucose) <span class="problem-code">(BM05)</span></li>
+                    <li>Low-cost point-of-care platform for AMR marker detection within an hour <span class="problem-code">(BM06)</span></li>
+                    <li>Smart wearable exoskeleton for stroke rehabilitation with adaptive assistance <span class="problem-code">(BM07)</span></li>
+                    <li>IoT-enabled smart wheelchair with obstacle detection and autonomous navigation <span class="problem-code">(BM08)</span></li>
+                    <li>AI model for drug discovery in rare and neglected diseases <span class="problem-code">(BM09)</span></li>
+                    <li>IoT-based water monitoring system for disease outbreak prediction <span class="problem-code">(BM10)</span></li>
                 </ul>
             </div>
             
             <div class="tab-content" id="agritech-content">
                 <ul class="problem-list">
-                    <li>Drone-based AI system for early crop stress detection</li>
-                    <li>Low-cost mechanized tools for small farmers</li>
-                    <li>Smart drip irrigation system with sensor automation</li>
-                    <li>Portable energy-efficient cold storage units</li>
-                    <li>AI-IoT solution for food processing monitoring</li>
-                    <li>Intelligent feed dispensing system for livestock</li>
-                    <li>IoT-controlled aeration system for fish ponds</li>
-                    <li>Solar-powered cold storage for coastal fishers</li>
-                    <li>Wearable sensor device for livestock health monitoring</li>
-                    <li>IoT-based automation for small dairy units</li>
+                    <li>Drone-based AI system for early crop stress detection <span class="problem-code">(AT01)</span></li>
+                    <li>Low-cost mechanized tools to reduce manual labor for small farmers <span class="problem-code">(AT02)</span></li>
+                    <li>Smart drip irrigation system with sensor-based automation <span class="problem-code">(AT03)</span></li>
+                    <li>Portable energy-efficient cold storage for grains and produce <span class="problem-code">(AT04)</span></li>
+                    <li>AI-IoT solution for real-time food processing monitoring <span class="problem-code">(AT05)</span></li>
+                    <li>Intelligent feed dispensing system with waste minimization <span class="problem-code">(AT06)</span></li>
+                    <li>IoT-controlled aeration system for fish ponds using renewable energy <span class="problem-code">(AT07)</span></li>
+                    <li>Solar-powered cold storage solution for coastal fishers <span class="problem-code">(AT08)</span></li>
+                    <li>Wearable sensor device for livestock health monitoring <span class="problem-code">(AT09)</span></li>
+                    <li>IoT-based automation for dairy unit processes (pasteurization, chilling, QC) <span class="problem-code">(AT10)</span></li>
+                    <li>Affordable cold chain technologies for milk and dairy products <span class="problem-code">(AT11)</span></li>
+                    <li>Compact machine for millet dehusking, grading and storage <span class="problem-code">(AT12)</span></li>
+                    <li>Ready-to-eat millet-based foods with extended shelf life <span class="problem-code">(AT13)</span></li>
                 </ul>
             </div>
         </div>
@@ -1113,7 +1223,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 RupaJna Hackathon. All rights reserved. | Organized by RVR & JC College of Engineering STP Foundation (RJ E-NEST)</p>
+                <p>&copy; 2025 RūpaJña Hackathon. All rights reserved. | Organized by RVR & JC College of Engineering STP Foundation (RJ E-NEST)</p>
             </div>
         </div>
     </footer>
