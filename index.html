@@ -514,6 +514,181 @@
             list-style-type: none;
         }
 
+                      /* Template Sections Grid */
+        .template-sections {
+            margin: 2rem 0;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .section-item {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            text-align: center;
+            border-top: 3px solid var(--primary);
+        }
+
+        .section-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            border-radius: 50%;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .section-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .section-item p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .section-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .section-item {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+                /* Centered Template Content */
+        .template-content-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .template-download {
+            text-align: center;
+            margin: 0;
+            padding: 1.5rem 2rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .template-instructions {
+            text-align: center;
+            background-color: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .template-instructions h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .template-instructions ul {
+            list-style-type: none;
+            padding-left: 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .template-instructions li {
+            padding: 8px 0;
+            color: var(--text);
+            position: relative;
+            padding-left: 25px;
+            text-align: left;
+        }
+
+        .template-instructions li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .template-download, 
+            .template-instructions {
+                padding: 1.2rem;
+            }
+            
+            .template-instructions ul {
+                text-align: center;
+            }
+            
+            .template-instructions li {
+                text-align: center;
+                padding-left: 0;
+                padding-right: 25px;
+            }
+            
+            .template-instructions li:before {
+                left: auto;
+                right: 0;
+            }
+        }
+                /* Centered Template Header */
+        .template-header-center {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .template-header-center .template-icon {
+            margin-bottom: 1.5rem;
+        }
+
+        .template-header-center h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .template-header-center p {
+            color: var(--light-text);
+            margin-bottom: 0;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
                 /* Problem List Updates for Shorter Items */
         .problem-list li {
             padding: 18px 25px;
@@ -1183,6 +1358,88 @@
                     <li>Compact machine for millet dehusking, grading and storage <span class="problem-code">(AT12)</span></li>
                     <li>Ready-to-eat millet-based foods with extended shelf life <span class="problem-code">(AT13)</span></li>
                 </ul>
+            </div>
+        </div>
+    </section>
+        <!-- Submission Template Section -->
+        <!-- Submission Template Section -->
+    <section id="submission-template" class="submission-template">
+        <div class="container">
+            <h2 class="section-title">Idea Submission Template</h2>
+            <p class="section-subtitle">Download the template to submit your hackathon ideas in the proper format</p>
+            
+                            <div class="template-header-center">
+                    <div class="template-icon">
+                        <i class="fas fa-file-powerpoint"></i>
+                    </div>
+                    <h3>Presentation Template Structure</h3>
+                    <p>Use this PowerPoint template to present your hackathon idea with the following structured sections:</p>
+                </div>
+                
+                <div class="template-sections">
+                    <div class="section-grid">
+                        <div class="section-item">
+                            <div class="section-number">1</div>
+                            <h4>Problem Statement</h4>
+                            <p>Clearly define the problem you're addressing</p>
+                        </div>
+                        <div class="section-item">
+                            <div class="section-number">2</div>
+                            <h4>Proposed Solution</h4>
+                            <p>Outline your innovative solution approach</p>
+                        </div>
+                        <div class="section-item">
+                            <div class="section-number">3</div>
+                            <h4>Technical Details</h4>
+                            <p>Describe the technical architecture and components</p>
+                        </div>
+                        <div class="section-item">
+                            <div class="section-number">4</div>
+                            <h4>Use Cases & Showstoppers</h4>
+                            <p>Identify key applications and potential challenges</p>
+                        </div>
+                        <div class="section-item">
+                            <div class="section-number">5</div>
+                            <h4>Impacts and Benefits</h4>
+                            <p>Highlight the expected outcomes and advantages</p>
+                        </div>
+                        <div class="section-item">
+                            <div class="section-number">6</div>
+                            <h4>Current Status of Work</h4>
+                            <p>Describe progress made and prototype status</p>
+                        </div>
+                        <div class="section-item">
+                            <div class="section-number">7</div>
+                            <h4>Intellectual Property Rights</h4>
+                            <p>Detail filed or planned IP protections</p>
+                        </div>
+                        <div class="section-item">
+                            <div class="section-number">8</div>
+                            <h4>Budget Estimate</h4>
+                            <p>Provide cost breakdown for MVP/Application unit</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="template-content-center">
+                    <div class="template-download">
+                        <a href="https://drive.google.com/uc?export=download&id=1Z3b5NzBTQ1xTlOzd34-rY2rlizLPyj6E" class="download-btn template-download-btn">
+                            <i class="fas fa-download"></i> Download Presentation Template
+                        </a>
+                        <p class="template-note">Download the PowerPoint template with all required sections</p>
+                    </div>
+                    
+                    <div class="template-instructions">
+                        <h4>Submission Guidelines:</h4>
+                        <ul>
+                            <li>Use the provided template structure for your presentation</li>
+                            <li>Maximum 15 slides including cover and references</li>
+                            <li>Address all 8 sections mentioned above</li>
+                            <li>Submit the completed presentation before the deadline</li>
+                            <li>Include team details and contact information</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
